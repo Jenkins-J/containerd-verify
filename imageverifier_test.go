@@ -71,7 +71,7 @@ func TestVerifyImage(t *testing.T) {
 
 	resp, err := client.VerifyImage(ctx, r)
 	if err != nil {
-		t.Errorf("Error: %s\n", err.Error())
+		t.Fatalf("Error: %s\n", err.Error())
 	}
 
 	fmt.Printf("Response Ok: %v\n", resp.Ok)

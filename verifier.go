@@ -152,10 +152,10 @@ func (v notaryVerifier) VerifyImage(ctx context.Context, req *iv.VerifyImageRequ
 
 	// create repository with ref -> repo
 	remoteRepo, err := remote.NewRepository(reference)
-	registryName := fmt.Sprintf("%s/%s", remoteRepo.Reference.Registry, remoteRepo.Reference.Repository)
 	if err != nil {
 		return &iv.VerifyImageResponse{Ok: false, Reason: err.Error()}, fmt.Errorf("Failed to create repository client: %s\n", err.Error())
 	}
+	registryName := fmt.Sprintf("%s/%s", remoteRepo.Reference.Registry, remoteRepo.Reference.Repository)
 
 	// set PlainHTTP for insecure registries
 	if verifierConfiguration.InsecureRegistries != nil {
